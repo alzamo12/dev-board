@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- daisy ui and tailwind css links  -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.8/daisyui.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.9/daisyui.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.9/themes.css" rel="stylesheet" type="text/css" />
 
     <!-- google fonts links   -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,15 +25,18 @@
     <title>Dev Board</title>
 </head>
 
-<body id="body" class="bg-[#F4F7FF]">
+<body id="body" class="bg-[#F4F7FF] min-h-screen">
     <header class="py-4">
-        <div class="md:w-10/12 mx-auto navbar bg-base-100 shadow-sm rounded-xl p-5">
+        <div class="md:w-5/6 mx-auto navbar bg-base-100 shadow-sm rounded-xl p-5">
+            <!-- start of navbar with logo -->
             <div class="flex flex-1 items-center gap-5">
                 <!-- <a class="btn btn-ghost text-xl">daisyUI</a> -->
                 <img src="./assets/logo.png" alt="">
                 <h2 class="text-3xl">Dev<span class="font-bold">Board</span></h2>
             </div>
+            <!-- end of navbar -->
             <div class="flex gap-4">
+                <!-- task counter -->
                 <div class="dropdown dropdown-end">
                     <div class="indicator">
                         <div class="flex items-center gap-2 py-2 px-3 bg-[#F4F7FF] rounded-full">
@@ -41,18 +45,184 @@
                         </div>
                     </div>
                 </div>
-                <div class="dropdown dropdown-end">
-                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                        <div class="w-10 rounded-full">
-                            <img alt="Tailwind CSS Navbar component" src="./assets/theme-btn.png" />
-                        </div>
-                    </div>
+                <!-- color changing logo -->
+                <div id="rainbow-btn" class="w-10 rounded-full cursor-pointer">
+                    <img class="active:animate-spin " alt="color changing logo" src="./assets/theme-btn.png" />
                 </div>
             </div>
         </div>
     </header>
-    <main class="bg-white ">
+    <main class=" md:w-5/6 grid grid-cols-12 mx-auto gap-5 ">
+        <!-- left side section -->
+        <section class="col-span-9 bg-white">
+            <!-- stats section -->
+            <div class="grid grid-cols-4 gap-4 p-4">
+                <!-- task stat -->
+                <div class="flex col-span-1 gap-5 bg-[#F4F7FF] px-2 py-8 items-center justify-center rounded-xl">
+                    <div class="bg-white h-12 w-12 grid justify-center items-center rounded-full">
+                        <img src="./assets/checkbox.png" alt="">
+                    </div>
+                    <div>
+                        <h4 class="text-gray-600 text-xs">Task Assigned</h4>
+                        <h2  class="font-bold text-xl">0<span id="task-count">6</span></h2>
+                    </div>
+                </div>
 
+                <!-- discover stat -->
+                <div
+                id="discover-stat"
+                    class="flex gap-5 col-span-2 cursor-pointer bg-gradient-to-bl to-[#3752FD] from-[#9BA8F8] text-white  px-4 py-8 items-center justify-center rounded-xl">
+                    <div class="  grid justify-center items-center rounded-full">
+                        <img src="./assets/board.png" alt="">
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-xl">Discover Something <br> New Today!</h2>
+                    </div>
+                </div>
+
+                <!-- task stat -->
+                <div class="flex gap-5 col-span-1 bg-[#F4F7FF] px-2 py-8 items-center justify-center rounded-xl">
+                    <div class="bg-white h-12 w-12 grid justify-center items-center rounded-full">
+                        <img src="./assets/calender.png" alt="">
+                    </div>
+                    <div>
+                        <h2 id="current-date" class="font-bold text-xl">06</h2>
+                    </div>
+                </div>
+
+            </div>
+            <!-- cards section -->
+            <div class="gap-4 p-4 grid grid-cols-3">
+                <!-- card - 1  -->
+                <div class="card bg-[#F4F7FF] card-sm shadow-sm">
+                    <div class="card-body">
+                        <span class="bg-white p-3 badge">Shop Ease</span>
+                        <h2 class="card-title">Fix Mobile Button Issue</h2>
+                        <p class="bg-white text-gray-400 p-3 rounded">
+                            Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works
+                            properly
+                            and ensure onClick works
+                        </p>
+                        <div class="justify-between items-end card-actions">
+                            <div class="deadline-date">
+                                <p class="text-gray-500">Deadline</p>
+                                <p>21 March 2025</p>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card - 2  -->
+                <div class="card bg-[#F4F7FF] card-sm shadow-sm">
+                    <div class="card-body">
+                        <span class="bg-white p-3 badge">Cloud Sync</span>
+                        <h2 class="card-title">Add Dark Mode</h2>
+                        <p class="bg-white text-gray-400 p-3 rounded">
+                            Store the user's preference in localStorage, update CSS variables dynamically, and apply a
+                            smooth transition effect.
+                        </p>
+                        <div class="justify-between items-end card-actions">
+                            <div class="deadline-date">
+                                <p class="text-gray-500">Deadline</p>
+                                <p>21 March 2025</p>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card - 3  -->
+                <div class="card bg-[#F4F7FF] card-sm shadow-sm">
+                    <div class="card-body">
+                        <span class="bg-white p-3 badge">SwiftPay</span>
+                        <h2 class="card-title">Optimize Home page </h2>
+                        <p class="bg-white text-gray-400 p-3 rounded">
+                            Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works
+                            properly
+                            and ensure onClick works properly
+                        </p>
+                        <div class="justify-between items-end card-actions">
+                            <div class="deadline-date">
+                                <p class="text-gray-500">Deadline</p>
+                                <p>21 March 2025</p>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card - 4  -->
+                <div class="card bg-[#F4F7FF] card-sm shadow-sm">
+                    <div class="card-body">
+                        <span class="bg-white p-3 badge">Meta</span>
+                        <h2 class="card-title">Add new emoji 🤲</h2>
+                        <p class="bg-white text-gray-400 p-3 rounded">
+                            Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works
+                            properly
+                            and ensure onClick works properly
+                        </p>
+                        <div class="justify-between items-end card-actions">
+                            <div class="deadline-date">
+                                <p class="text-gray-500">Deadline</p>
+                                <p>21 March 2025</p>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card - 5  -->
+                <div class="card bg-[#F4F7FF] card-sm shadow-sm">
+                    <div class="card-body">
+                        <span class="bg-white p-3 badge">Google LLC</span>
+                        <h2 class="card-title">Integrate OpenAI API </h2>
+                        <p class="bg-white text-gray-400 p-3 rounded">
+                            Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works
+                            properly
+                            and ensure onClick works properly
+                        </p>
+                        <div class="justify-between items-end card-actions">
+                            <div class="deadline-date">
+                                <p class="text-gray-500">Deadline</p>
+                                <p>21 March 2025</p>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card - 6  -->
+                <div class="card bg-[#F4F7FF] card-sm shadow-sm">
+                    <div class="card-body">
+                        <span class="bg-white p-3 badge">GlassDoar</span>
+                        <h2 class="card-title">Improve Job searching </h2>
+                        <p class="bg-white text-gray-400 p-3 rounded">
+                            Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works
+                            properly
+                            and ensure onClick works properly
+                        </p>
+                        <div class="justify-between items-end card-actions">
+                            <div class="deadline-date">
+                                <p class="text-gray-500">Deadline</p>
+                                <p>21 March 2025</p>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Completed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- right side section -->
+        <section class="col-span-3 bg-white py-3 rounded-lg">
+            <div class="border-dashed  border-b-2 border-b-gray-300 pb-5">
+                <div class="p-4 flex justify-center items-center  gap-5">
+                    <img src="./assets/activity.png" class="w-5 h-5" alt="">
+                    <h2>Activity Log</h2>
+                </div>
+                <button id="clear-btn" class="btn btn-sm btn-primary mx-auto block">Clear History</button>
+            </div>
+
+            <div id="history-section" class="py-6 px-3 space-y-5"></div>
+        </section>
+
+        <script src="./scripts/index.js"></script>
     </main>
 </body>
 
