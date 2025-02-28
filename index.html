@@ -9,7 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- google fonts links   -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,11 +21,39 @@
             font-family: "Poppins", serif;
         }
     </style>
-    <title>Document</title>
+    <title>Dev Board</title>
 </head>
 
-<body>
+<body id="body" class="bg-[#F4F7FF]">
+    <header class="py-4">
+        <div class="md:w-10/12 mx-auto navbar bg-base-100 shadow-sm rounded-xl p-5">
+            <div class="flex flex-1 items-center gap-5">
+                <!-- <a class="btn btn-ghost text-xl">daisyUI</a> -->
+                <img src="./assets/logo.png" alt="">
+                <h2 class="text-3xl">Dev<span class="font-bold">Board</span></h2>
+            </div>
+            <div class="flex gap-4">
+                <div class="dropdown dropdown-end">
+                    <div class="indicator">
+                        <div class="flex items-center gap-2 py-2 px-3 bg-[#F4F7FF] rounded-full">
+                            <img class="w-4 h-4" src="./assets/checkbox.png" alt="" />
+                            <span id="completed-task" class="font-bold">23</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                        <div class="w-10 rounded-full">
+                            <img alt="Tailwind CSS Navbar component" src="./assets/theme-btn.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="bg-white ">
 
+    </main>
 </body>
 
 </html>
