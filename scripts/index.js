@@ -1,7 +1,5 @@
 const date = new Date()
-// const date = d.split(' ');
-// const dateNew = date[0] + date[1] + date[2] + date[3]
-document.getElementById("current-date").innerText = date.toDateString().replace(' ', ', ')
+document.getElementById("current-date").innerText = date.toDateString()
 
 const cards = document.getElementsByClassName("card");
 for (let card of cards) {
@@ -11,20 +9,17 @@ for (let card of cards) {
 
             alert("Board updated successfully")
 
-            // 1. remove number from taskCount
             let taskCount = parseInt(document.getElementById('task-count').innerText);
             document.getElementById('task-count').innerText = taskCount - 1;
 
             if (taskCount === 1){
-                alert("You have Successfully completed all the tasks")
+                alert("Congrats!!! You have completed all the current tasks")
                 console.log(1000)
             }
 
-            // 2.
             const history = document.getElementById("history-section");
             const time = new Date().toLocaleTimeString();
-            const title = e.target.parentNode.parentNode.children[1].innerText
-            console.log(title)
+            const title = e.target.parentNode.parentNode.children[1].innerText;
 
             const p = document.createElement('p');
 
@@ -33,10 +28,8 @@ for (let card of cards) {
                 `
             history.appendChild(p);
 
-            // 3.
             const completedTasks = parseInt(document.getElementById("completed-task").innerText);
             document.getElementById("completed-task").innerText = completedTasks + 1;
-
         }
     })
 }
@@ -57,6 +50,7 @@ document.getElementById("rainbow-btn").addEventListener("click", function(e){
 })
 
 document.getElementById("discover-stat").addEventListener("click", function(e){
+    e.preventDefault()
     window.location.href = '../blog.html'
 })
 
