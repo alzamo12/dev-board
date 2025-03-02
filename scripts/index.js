@@ -50,7 +50,6 @@ document.getElementById("rainbow-btn").addEventListener("click", function(e){
 })
 
 document.getElementById("discover-stat").addEventListener("click", function(e){
-    e.preventDefault()
     window.location.href = '../blog.html'
 })
 
